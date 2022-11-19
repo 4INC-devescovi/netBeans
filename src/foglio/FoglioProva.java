@@ -7,7 +7,9 @@ package foglio;
 public class FoglioProva {
     
     public static void main(String[] args) {
-        Foglio f = new Foglio(5, 2, "rosso");
+        Foglio f = new Foglio(3, 4, "rosso");
+        
+        System.out.println(f.stampa());
         
         double area = f.calcArea();
         System.out.println(area);
