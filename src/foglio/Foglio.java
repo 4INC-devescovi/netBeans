@@ -64,7 +64,7 @@ public class Foglio {
 
     public String stampa() {
         String s;
-            s = "altezza: " + altezza + " base: " + base + " colore: " + colore;
+            s = "altezza: " + altezza + "\nbase: " + base + "\ncolore: " + colore;
         return s;
     }
 
