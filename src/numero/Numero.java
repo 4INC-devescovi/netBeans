@@ -46,5 +46,14 @@ public class Numero {
        }
        return neg;
    }
+   public String moltiplicazionePerSomma(int m){
+       int risultato = 0;
+       
+       while(m*valore != risultato){
+           risultato += valore;
+       }
+       String testo = "Il risultato della moltiplicazione è: " + risultato;
+       return testo;
+   }
 }
 

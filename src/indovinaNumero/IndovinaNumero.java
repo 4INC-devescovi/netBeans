@@ -35,7 +35,7 @@ public class IndovinaNumero {
     }
 
     public String stampa() {
-        String s = " ";
+        String s = "";
 
         s = "numPensato: " + numPensato;
 
