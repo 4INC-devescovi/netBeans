@@ -71,12 +71,22 @@ public class Numero {
         }
         return testo;
     }
-    public String tavolaPitagorica(){
-        String testo = "";
-        int colonne = 1;
-        while(colonne <= valore){
-            
+    public String sequenzaFibonacci() {
+        String t = "Sequenza di fibonacci: ";
+        int cont = valore;
+        int n1 = 1;
+        int n2 = 0;
+        int seq = 0;
+
+        while (cont > 0) {
+            seq = n1 + n2;
+            n1 = n2;
+            n2 = seq;
+            t += seq + " ";
+            cont--;
         }
+        return t;
     }
+
 
 }
