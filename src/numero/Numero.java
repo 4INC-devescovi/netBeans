@@ -5,11 +5,13 @@ public class Numero {
     private int valore;
 
     public Numero(int valore) {
-        this.valore = valore;
+        setValore(valore);
     }
 
-    public void setValore(int v) {
-        valore = v;
+    public final void setValore(int v) {
+        if(v>=0){
+            valore = v;
+        }
     }
 
     public int getValore() {
@@ -86,6 +88,16 @@ public class Numero {
             cont--;
         }
         return t;
+    }
+    public int fattoriale(){
+        int cont = valore;
+        int fatt = 1;
+        while(cont > 0){
+            fatt*= cont;
+            cont--;
+        }
+        Numero num = new Numero(fatt);
+        return num.getValore();
     }
 
 
