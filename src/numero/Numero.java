@@ -3,7 +3,8 @@ package numero;
 public class Numero {
 
     private int valore;
-
+    
+    
     public Numero(int valore) {
         setValore(valore);
     }
@@ -89,16 +90,15 @@ public class Numero {
         }
         return t;
     }
-    public int fattoriale(){
+    public Numero fattoriale(){
         int cont = valore;
         int fatt = 1;
         while(cont > 0){
             fatt*= cont;
             cont--;
         }
-        Numero num = new Numero(fatt);
-        return num.getValore();
+       Numero num = new Numero(fatt);
+       return num;
     }
-
-
+    
 }
