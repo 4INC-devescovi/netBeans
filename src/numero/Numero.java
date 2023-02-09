@@ -100,5 +100,14 @@ public class Numero {
        Numero num = new Numero(fatt);
        return num;
     }
+    public String binario(){
+        int n = valore;
+        String t = "";
+        while(n > 0){
+            t = (n%2) + t;
+            n/=2;
+        }
+        return t;
+    }
     
 }
