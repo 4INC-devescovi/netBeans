@@ -101,11 +101,11 @@ public class Numero {
        return num;
     }
     public String binario(){
-        int n = valore;
+        int val = valore;
         String t = "";
-        while(n > 0){
-            t = (n%2) + t;
-            n/=2;
+        while(val > 0){
+            t = (val%2) + t;
+            val/=2;
         }
         return t;
     }
