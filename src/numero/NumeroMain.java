@@ -1,7 +1,7 @@
 package numero;
 public class NumeroMain {
     public static void main(String[]args){
-        Numero n = new Numero(27);
+        Numero n = new Numero(4323);
         
         System.out.println(n.somma(3));
         System.out.println(n.compareInt(9));
@@ -14,7 +14,10 @@ public class NumeroMain {
         
         Numero n2 = n.fattoriale();
         System.out.println(n2.getValore());
-        
         System.out.println(n.binario());
+        
+        System.out.println(n.esadecimale());
+        
+        System.out.println(n.baseX(1));
     }
 }

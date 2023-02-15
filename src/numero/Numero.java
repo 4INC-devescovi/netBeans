@@ -103,11 +103,133 @@ public class Numero {
     public String binario(){
         int val = valore;
         String t = "";
-        while(val > 0){
+        if(val==0){
+            t = "0";
+        }
+        else{
+            while(val > 0){
             t = (val%2) + t;
             val/=2;
+            } 
         }
+        
         return t;
     }
+    public String esadecimale(){
+        String esa = "";
+        String bin = binario();
+        int inizio = bin.length();
+        while(inizio%4 != 0){
+            bin = "0" + bin;
+            inizio=bin.length();
+        }
+        int fine = bin.length() - 4;
+        while (fine >= 0) {
+            String conversione = bin.substring(fine, inizio);
+            esa = conversioneEsa(conversione) + esa;
+            fine-=4;
+            inizio-=4;
+        }
+        return esa;      
+    }
+        
+
+    private String conversioneEsa(String esa){
+        switch(esa){
+            case "0000":
+                esa = "0";
+                break;
+            case "0001":
+                esa = "1";
+                break;
+            case "0010":
+                esa = "2";
+                break;
+            case "0011":
+                esa = "3";
+                break;
+            case "0100":
+                esa = "4";
+                break;
+            case "0101":
+                esa = "5";
+                break;
+            case "0110":
+                esa = "6";
+                break;
+            case "0111":
+                esa = "7";
+                break;
+            case "1000":
+                esa = "8";
+                break;
+            case "1001":
+                esa = "9";
+                break;
+            case "1010":
+                esa = "A";
+                break;
+            case "1011":
+                esa = "B";
+                break;
+            case "1100":
+                esa = "C";
+                break;
+            case "1101":
+                esa = "D";
+                break;
+            case "1110":
+                esa = "E";
+                break;
+            case "1111":
+                esa = "F";
+                break;
+            default:
+                esa = "Tua madre fa bocchini";
+        }
+        return esa;
+    }
+    
+    
+    public String baseX(int elev){
+        int val = valore;
+        String t = "";
+        if(elev <= 1){
+            t = "Porcodio, non è possibile trasformare un numero in base 1 e 0, perché non esistono, capra IGNORANTE!!";
+        }
+        else{
+            if(val==0){
+                t = "0";
+                }
+            else{
+                while(val > 0){
+                int resto = val%elev;
+                String conv = convertitoreX(resto);
+                t = conv + t;
+                val/=elev;
+                } 
+            } 
+        }
+        
+        
+        return valore + " in base " + elev + " è: " + t;
+    }
+    
+    private String convertitoreX(int conv){
+        String t = " ";
+        if(conv>=10 && conv <= 36){
+            String conver = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            conv-=10;
+            t += conver.charAt(conv);
+        }
+        else{
+            t += conv;
+        }
+        
+        return t;
+    }
+   
+
+
     
 }
