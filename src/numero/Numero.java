@@ -3,14 +3,13 @@ package numero;
 public class Numero {
 
     private int valore;
-    
-    
+
     public Numero(int valore) {
         setValore(valore);
     }
 
     public final void setValore(int v) {
-        if(v>=0){
+        if (v >= 0) {
             valore = v;
         }
     }
@@ -74,6 +73,7 @@ public class Numero {
         }
         return testo;
     }
+
     public String sequenzaFibonacci() {
         String t = "Sequenza di fibonacci: ";
         int cont = valore;
@@ -90,52 +90,53 @@ public class Numero {
         }
         return t;
     }
-    public Numero fattoriale(){
+
+    public Numero fattoriale() {
         int cont = valore;
         int fatt = 1;
-        while(cont > 0){
-            fatt*= cont;
+        while (cont > 0) {
+            fatt *= cont;
             cont--;
         }
-       Numero num = new Numero(fatt);
-       return num;
+        Numero num = new Numero(fatt);
+        return num;
     }
-    public String binario(){
+
+    public String binario() {
         int val = valore;
         String t = "";
-        if(val==0){
+        if (val == 0) {
             t = "0";
+        } else {
+            while (val > 0) {
+                t = (val % 2) + t;
+                val /= 2;
+            }
         }
-        else{
-            while(val > 0){
-            t = (val%2) + t;
-            val/=2;
-            } 
-        }
-        
+
         return t;
     }
-    public String esadecimale(){
+
+    public String esadecimale() {
         String esa = "";
         String bin = binario();
         int inizio = bin.length();
-        while(inizio%4 != 0){
+        while (inizio % 4 != 0) {
             bin = "0" + bin;
-            inizio=bin.length();
+            inizio = bin.length();
         }
         int fine = bin.length() - 4;
         while (fine >= 0) {
             String conversione = bin.substring(fine, inizio);
             esa = conversioneEsa(conversione) + esa;
-            fine-=4;
-            inizio-=4;
+            fine -= 4;
+            inizio -= 4;
         }
-        return esa;      
+        return esa;
     }
-        
 
-    private String conversioneEsa(String esa){
-        switch(esa){
+    private String conversioneEsa(String esa) {
+        switch (esa) {
             case "0000":
                 esa = "0";
                 break;
@@ -189,47 +190,97 @@ public class Numero {
         }
         return esa;
     }
-    
-    
-    public String baseX(int elev){
+
+    public String baseX(int elev) {
         int val = valore;
         String t = "";
-        if(elev <= 1){
+        if (elev <= 1) {
             t = "Porcodio, non è possibile trasformare un numero in base 1 e 0, perché non esistono, capra IGNORANTE!!";
-        }
-        else{
-            if(val==0){
+        } else {
+            if (val == 0) {
                 t = "0";
+            } else {
+                while (val > 0) {
+                    int resto = val % elev;
+                    String conv = convertitoreX(resto);
+                    t = conv + t;
+                    val /= elev;
                 }
-            else{
-                while(val > 0){
-                int resto = val%elev;
-                String conv = convertitoreX(resto);
-                t = conv + t;
-                val/=elev;
-                } 
-            } 
+            }
         }
-        
-        
+
         return valore + " in base " + elev + " è: " + t;
     }
-    
-    private String convertitoreX(int conv){
+
+    private String convertitoreX(int conv) {
         String t = " ";
-        if(conv>=10 && conv <= 36){
+        if (conv >= 10 && conv <= 36) {
             String conver = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-            conv-=10;
+            conv -= 10;
             t += conver.charAt(conv);
-        }
-        else{
+        } else {
             t += conv;
         }
-        
+
         return t;
     }
-   
 
+    public String sommaBinario(String op) {
 
-    
+        String t = "";
+        int resto = 0;
+        int n1 = 0;
+        int n2 = 0;
+
+        String val = binario();
+        int contVal = val.length() - 1;
+        int contOp = op.length() - 1;
+        //cont è il contatore che si usa per il while
+        int cont = contVal + 1;
+        if (contOp > contVal) {
+            cont = contOp + 1;
+        }
+        while (cont > -1) {
+            if (contVal > -1 || contOp > -1 || resto == 1) {
+                if (contVal >= 0) {
+                    if (val.charAt(contVal) == '1') {
+                        n1 = 1;
+                    }
+                }
+                if (contOp >= 0) {
+                    if (op.charAt(contOp) == '1') {
+                        n2 = 1;
+                    }
+                }
+
+                //sommo per vedere cosa devo aggiungere a t e se c'è il resto
+                n1 += n2 + resto;
+                switch (n1) {
+                    case 1:
+                        resto = 0;
+                        t = "1" + t;
+                        break;
+                    case 2:
+                        resto = 1;
+                        t = "0" + t;
+                        break;
+                    case 3:
+                        resto = 1;
+                        t = "1" + t;
+                        break;
+                    default:
+                        resto = 0;
+                        t = "0" + t;
+                }   
+            }
+            cont--;
+            contVal--;
+            contOp--;
+            n1 = 0;
+            n2 = 0;
+
+        }
+        return t;
+    }
+
 }

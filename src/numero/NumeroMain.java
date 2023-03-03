@@ -1,7 +1,8 @@
 package numero;
 public class NumeroMain {
     public static void main(String[]args){
-        Numero n = new Numero(4323);
+        Numero n = new Numero(4);
+        
         
         System.out.println(n.somma(3));
         System.out.println(n.compareInt(9));
@@ -18,6 +19,8 @@ public class NumeroMain {
         
         System.out.println(n.esadecimale());
         
-        System.out.println(n.baseX(1));
+        System.out.println(n.baseX(2));
+        
+        System.out.println(n.sommaBinario("110"));
     }
 }
