@@ -15,6 +15,8 @@ public class Prodotto {
         this.descrizione = descrizione;
         this.codiceBarre = codiceBarre;
     }
+    
+    
 
     
     
@@ -29,6 +31,15 @@ public class Prodotto {
     public double pesoLordo(){
         return peso + tara;
     }
+
+    public double getPrezzo() {
+        return prezzo;
+    }
+
+    public String getDescrizione() {
+        return descrizione;
+    }
+    
     
     public boolean controlloCodice(){
         int somm = 0;
