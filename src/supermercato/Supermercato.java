@@ -16,8 +16,8 @@ public class Supermercato {
         this.diml = prodotti.length;
     }
 
-    private Prodotto[] copia(Prodotto[] prodotti, int lungFisica    ) {
-        Prodotto[] temp = new Prodotto[lungFisica];
+    private Prodotto[] copia(Prodotto[] prodotti, int lungFisica) {
+        Prodotto[] temp = new Prodotto[prodotti.length + lungFisica];
         for (int i = 0; i < prodotti.length; i++) {
             temp[i] = prodotti[i];
         }
@@ -35,7 +35,7 @@ public class Supermercato {
 
     public String prezzoAlto() {
         int prezzoAlto = 0;
-        for (int i = 1; i < prodotti.length; i++){
+        for (int i = 1; i < diml; i++){
             if (prodotti[prezzoAlto].prezzoIvato() < prodotti[i].prezzoIvato()){
                 prezzoAlto = i;
             }
@@ -45,14 +45,14 @@ public class Supermercato {
 
     public double valoreMerce() {
         double somma = prodotti[0].getPrezzo();
-        for (int i = 1; i < prodotti.length; i++) 
+        for (int i = 1; i < diml; i++) 
             somma += prodotti[i].getPrezzo();
         return somma;
     }
 
     public String pesoMinore() {
         int pesoMinore = 0;
-        for (int i = 1; i < prodotti.length; i++){
+        for (int i = 1; i < diml; i++){
             if (prodotti[pesoMinore].prezzoIvato() > prodotti[i].prezzoIvato()){
                 pesoMinore = i;
             }
@@ -61,9 +61,9 @@ public class Supermercato {
     }
 
     public String sopraValoreMedio() {
-        double valoreMedio = valoreMerce()/prodotti.length;
+        double valoreMedio = valoreMerce()/diml;
         String prodottiSopraMedia = "";
-        for (int i = 0; i < prodotti.length; i++) {
+        for (int i = 0; i < diml; i++) {
             if (prodotti[i].getPrezzo() > valoreMedio) {
                 prodottiSopraMedia += prodotti[i].getDescrizione() + "\n";
             }
@@ -73,14 +73,27 @@ public class Supermercato {
     
     public void addProd(Prodotto pAdd){
         if(diml == this.prodotti.length)
-            prodotti = copia(prodotti, prodotti.length + 10);
+            prodotti = copia(prodotti, (prodotti.length*20)/100);
         
-        prodotti[diml] = pAdd;
+        Prodotto pAddCopia = new Prodotto (pAdd);
+        prodotti[diml] = pAddCopia;
         diml++;
     }
     
     public void addProd(double prezzo, double iva, double peso, double tara, String descrizione, String codiceBarre){
         Prodotto p = new Prodotto(prezzo, iva, peso, tara, descrizione, codiceBarre);
         addProd(p);
+    }
+    
+    private void shiftSx(Prodotto[] p, int ind, int diml){
+        for(int i = ind; i < diml; i++)
+            p[i] = p[i-1];
+    }   
+    public void remProd(String descr){
+        int indice = 0;
+        while(!prodotti[indice].getDescrizione().equals(descr))
+            indice++;
+        shiftSx(prodotti, indice, diml);
+        diml--;
     }
 }

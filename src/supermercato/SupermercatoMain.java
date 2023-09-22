@@ -40,6 +40,8 @@ public class SupermercatoMain {
         descrizione = "iphone";
         iva2 = 399;
         Prodotto p1 = new Prodotto(prezzo, iva2, peso, tara, descrizione, codice);
+        s.addProd(p1);
+        s.remProd("action figure");
         
     }   
 }

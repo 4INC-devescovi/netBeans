@@ -16,9 +16,14 @@ public class Prodotto {
         this.codiceBarre = codiceBarre;
     }
     
-    
-
-    
+    public Prodotto(Prodotto p){
+        this.prezzo = p.prezzo;
+        this.iva = p.iva;
+        this.peso = p.peso;
+        this.tara = p.tara;
+        this.descrizione = p.descrizione;
+        this.codiceBarre = p.codiceBarre;        
+    }
     
     public String stampa(){
         return "Prezzo: " + prezzo + "\nIva: " + iva + "\nPeso: " + peso + "\nTara: " + tara + "\nDescrizione: " + descrizione + "\nCodice a barre: " + codiceBarre;
