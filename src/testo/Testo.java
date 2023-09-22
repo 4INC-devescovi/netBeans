@@ -1,11 +1,11 @@
 package testo;
-public class TestoMain {
+public class Testo {
     private char[] messaggioCriptato;
     private String consonanti;
     private String vocali;
     private String numeri;
 
-    public TestoMain(String messaggio) {
+    public Testo(String messaggio) {
         this.messaggioCriptato = criptaMessaggio(messaggio);
         consonanti = "bcdfghjklmnpqrstvwyz";
         vocali = "aeiou";
@@ -99,7 +99,7 @@ public class TestoMain {
 
         String g = "Il cellulare di Elena e' 338-4189961";
         String controllo = "Om dimmamesi fo Imipe i' 449-5290072";
-        TestoMain t = new TestoMain(g);
+        Testo t = new Testo(g);
 
         System.out.println(t.getMessaggio());
         System.out.println(controllo.equals(t.getMessaggio()));

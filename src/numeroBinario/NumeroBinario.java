@@ -1,4 +1,4 @@
-    package NumeroBinario;
+package NumeroBinario;
 public class NumeroBinario {
     
     private String num;

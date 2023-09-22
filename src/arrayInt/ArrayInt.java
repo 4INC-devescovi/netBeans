@@ -57,7 +57,6 @@ public class ArrayInt {
     
     public int[] cloneArray(){
         int[] arrayCopia = new int[array.length];
-        Character.toUp
         for(int i = 0; i < array.length; i++){
             arrayCopia[i] = array[i];
         }

@@ -17,7 +17,7 @@ public class AziendaAgraria {
     }
     
     public int mediaRaccolta(){
-        return totaleRaccolto()/7;
+        return totaleRaccolto()/giornate.length;
     }
     
     public String giorniMaggQuantita(int quantita){
