@@ -1,5 +1,4 @@
 package supermercato;
-
 import prodotto.Prodotto;
 
 public class Supermercato {
@@ -12,14 +11,21 @@ public class Supermercato {
     public Supermercato(String nome, String indirizzo, Prodotto[] prodotti) {
         this.nome = nome;
         this.indirizzo  = indirizzo;
-        this.prodotti = copia(prodotti, prodotti.length);
+        this.prodotti = copia(prodotti, 0);
         this.diml = prodotti.length;
+    }
+    
+    public Supermercato(Supermercato sup){
+        this.nome = sup.nome;
+        this.indirizzo = sup.indirizzo;
+        this.prodotti = copia(sup.prodotti, 0);
+        this.diml = sup.prodotti.length;
     }
 
     private Prodotto[] copia(Prodotto[] prodotti, int lungFisica) {
         Prodotto[] temp = new Prodotto[prodotti.length + lungFisica];
         for (int i = 0; i < prodotti.length; i++) {
-            temp[i] = prodotti[i];
+            temp[i] = new Prodotto(prodotti[i]);
         }
         return temp;
     }
