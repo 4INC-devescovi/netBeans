@@ -43,5 +43,7 @@ public class SupermercatoMain {
         s.addProd(p1);
         s.remProd("action figure");
         
+        Supermercato s1 = new Supermercato(s);
+        
     }   
 }
