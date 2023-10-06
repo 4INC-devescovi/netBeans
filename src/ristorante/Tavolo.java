@@ -65,15 +65,13 @@ public class Tavolo {
     public int getNumTav() {
         return numTav;
     }
+    
+    
 
     public boolean isPrenotato() {
         return prenotato;
     }
 
-    @Override
-    public String toString() {
-        return super.toString(); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-    }
     
     
     

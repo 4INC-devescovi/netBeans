@@ -1,78 +1,93 @@
 package ristorante;
 public class Ristorante {
     
-    private int capienzaTav;
-    private int totTav;
-    private Tavolo[] tavoli;
+    private int saleOccupate;  //diml
+    private int maxSale;
+    private Sala[] sale;
     
-    public Ristorante(Tavolo[] t){
-        /*for(int i = 0; i < t.length; i++){
-            tavoli[i] = new Tavolo(t[i]);
-        }*/
-        this.tavoli = t;
-        this.totTav = tavoli.length;
-        this.capienzaTav = this.totTav;
+    public Ristorante(Sala[] sale){
+        this.sale = new Sala[sale.length];
+        for(int i = 0; i < this.sale.length; i++)
+            this.sale[i] = new Sala(sale[i]);
+        
+        saleOccupate = sale.length;
+        maxSale = saleOccupate;
     }
     
-    private int cercaTav(int numTav){
+    public Ristorante(Tavolo[][] t){
+        this.sale = new Sala[t.length];
+        for(int i = 0; i < this.sale.length; i++)
+            this.sale[i] = new Sala(t[i], i);
+                
+        saleOccupate = sale.length;
+        maxSale = saleOccupate;
+    }
+    
+    private int cercaSala(int numSala){
         int indice = 0;
-        while(indice < totTav && tavoli[indice].getNumTav() != numTav)
+        while(indice < maxSale && sale[indice].getNumSala() != numSala)
             indice++;
         return indice;
     }
     
-    public boolean siediti(int numTav){
-        return tavoli[cercaTav(numTav)].siediti();
+    public boolean siediti(int numTav, int numSala){
+        return sale[cercaSala(numSala)].siediti(numTav);
     }
     
-    public boolean alzati(int numTav){
-        return tavoli[cercaTav(numTav)].alzati();
+    public boolean alzati(int numTav, int numSala){
+        return sale[cercaSala(numSala)].alzati(numTav);
     }
      
-    public int totPosti(){
-        int ris = 0;
-        for(int i = 0; i < totTav; i++)
-            ris += tavoli[i].getCapienza();
-        return ris;
+    public int totPostiSala(int numSala){
+        return sale[cercaSala(numSala)].totPosti();
     }
     
-    public int totPersoneSedute(){
-        int ris = 0;
-        for(int i = 0; i < totTav; i++)
-            ris += tavoli[i].getNumPers();
-        return ris;
+    public int totPersoneSeduteSala(int numSala){
+        return sale[cercaSala(numSala)].totPersoneSedute();
     }
     
-    public boolean prenota(int persone){
+    public boolean prenota(int persone, int numSala){
+        return sale[cercaSala(numSala)].prenota(persone);
+    }
+    
+    public boolean disdici(int numTav, int numSala){
+        return sale[cercaSala(numSala)].disdici(numTav);
+    }
+    
+    public boolean addTav(Tavolo t, int numSala){
+        return sale[cercaSala(numSala)].addTav(t);
+    }
+    
+    public void remTav(int numTav, int numSala){
+        sale[cercaSala(numSala)].remTav(numTav);
+    }
+    
+    public boolean addSala(Sala s){
         boolean ris = false;
-        int indice = 0;
-        while(indice < totTav && !tavoli[indice].prenota(persone))
-            indice++;
-        if(indice < totTav)
-            ris = true;
-        return ris;
-    }
-    
-    public boolean disdici(int numTav){
-        return tavoli[cercaTav(numTav)].disdici();
-    }
-    
-    public boolean addTav(Tavolo t){
-        boolean ris = false;
-        if(totTav<capienzaTav){
-            tavoli[totTav] = new Tavolo(t);
-            totTav++;
+        if(saleOccupate < maxSale){
+            sale[saleOccupate] = new Sala(s);
+            saleOccupate++;
             ris = true;
         }
         return ris;
     }
     
     private void shiftSx(int indice){
-        for(int i = indice; i < totTav; i++)
-            tavoli[i - 1] = tavoli[i];
+        for(int i = indice; i < saleOccupate; i++)
+            sale[i - 1] = sale[i];
     }
     
-    public void remTav(int numTav){
-        shiftSx(cercaTav(numTav));
+    public void remSala(int numSala){
+        shiftSx(cercaSala(numSala));
+    }
+    
+    public void spostaTav(int numSalaPartenza, int numSalaArrivo, int numTav){
+        int indiceSalaP = cercaSala(numSalaPartenza);
+        int indiceSalaA = cercaSala(numSalaArrivo);
+        if(sale[indiceSalaA].getTotTav() < sale[indiceSalaA].getCapienzaTav()){
+            Tavolo t = sale[indiceSalaP].getTavolo(numTav);
+            sale[indiceSalaA].addTav(t);
+            sale[indiceSalaP].remTav(numTav);
+        }
     }
 }
