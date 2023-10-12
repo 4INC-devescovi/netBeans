@@ -79,13 +79,11 @@ public class Sala {
     }
     
     public boolean prenota(int persone){
-        boolean ris = false;
         int indice = 0;
         while(indice < totTav && !tavoli[indice].prenota(persone))
             indice++;
-        if(indice < totTav)
-            ris = true;
-        return ris;
+        
+        return (indice < totTav);
     }
     
     public boolean disdici(int numTav){
@@ -93,6 +91,9 @@ public class Sala {
     }
     
     public boolean addTav(Tavolo t){
+        
+        
+        
         boolean ris = false;
         if(totTav<capienzaTav){
             tavoli[totTav] = new Tavolo(t);
