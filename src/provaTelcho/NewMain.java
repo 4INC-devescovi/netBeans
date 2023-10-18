@@ -16,7 +16,7 @@ public class NewMain {
     public static void main(String[] args) {
        boolean condizione = true;
         
-       (condizione) ? metodo1(): metodo2();
+       //(condizione) ? metodo1(): metodo2();
 
     }
     
