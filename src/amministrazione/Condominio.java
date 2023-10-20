@@ -54,7 +54,7 @@ public class Condominio {
                 indice = i;
         }
         
-        return "L'appartamento del condominio " + this.nome + " con piu' millesimi e' " + appartamenti[indice].getNominativo();
+        return "\nL'appartamento del condominio " + this.nome + " con piu' millesimi e' " + appartamenti[indice].getNominativo();
             
     }    
         

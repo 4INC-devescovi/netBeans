@@ -43,6 +43,13 @@ public class Amministrazione {
         return condomini[indice].stampa();
     }
     
+    public String nomeMaxMillesimiCondominio(){
+        String t = "";
+        for(int i = 0; i < condominiTot; i++)
+            t += condomini[i].maxMillesimi();
+        return t;
+    }
+    
     public String stampa(){
         String t = "";
         for(int i = 0; i < condominiTot; i++)
