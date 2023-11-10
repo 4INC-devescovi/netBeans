@@ -4,7 +4,7 @@ public class Classe {
     private Studente capoClasse;
     private Studente[] studenti;
 
-    public Classe(Studente capoClasse, Studente[] studenti)throws Exception{
+    public Classe(Studente capoClasse, Studente[] studenti){
         this.studenti = new Studente[studenti.length];
         for (int i = 0; i < studenti.length; i++){
             this.studenti[i] = new Studente(studenti[i]); 
@@ -12,27 +12,38 @@ public class Classe {
         setCapoClasse(capoClasse);
     }
 
-    public void setCapoClasse(Studente capoClasse)throws Exception{
-        try{
-            int i = 0;
-            while (!(capoClasse.getCognome().isEmpty() && capoClasse.getCognome().isEmpty())&& i<studenti.length){
-                if (capoClasse.getNome().equals(studenti[i].getNome()) 
-                        && studenti[i].getCognome().equals(studenti[i].getCognome())){
-                    this.capoClasse= capoClasse;
-                }
-                i++;
-            }
-            
-            if (this.capoClasse == null){
-                throw new Exception("il capo classe non Ã¨ presente nella classe");
-            }
-
-        }catch(Exception e){
-            throw e;
-        }
+    public void setCapoClasse(Studente capoClasse) {
+        this.capoClasse = capoClasse;
     }
 
-    // che fa il metodo inverti attributi
+    public void inveriAtt() throws Exception{
+        String cognome = capoClasse.getNome();
+        String nome = capoClasse.getCognome();
+        capoClasse.setCognome(cognome);
+        capoClasse.setNome(nome);
+
+        for (int i = 0; i < studenti.length; i++) {
+            cognome = studenti[i].getNome();
+            nome = studenti[i].getCognome();
+            studenti[i].setCognome(cognome);
+            studenti[i].setNome(nome);
+        }
+
+    }
+    
+    public void ordinaStudenti() {
+        int n = studenti.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (studenti[j].getCognome().compareTo(studenti[j + 1].getCognome()) > 0) {
+                    Studente temp = studenti[j];
+                    studenti[j] = studenti[j + 1];
+                    studenti[j + 1] = temp;
+                }
+            }
+        }
+    }
+    
     
     @Override
     public String toString() {
