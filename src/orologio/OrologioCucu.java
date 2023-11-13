@@ -5,7 +5,7 @@ public class OrologioCucu extends Orologio{
     
     public OrologioCucu(int ora, int minuti, int secondi, boolean carillon) {
         super(ora, minuti, secondi);
-        carillonAttivo = carillon;
+        setCarillonAttivo(carillon);
     }
 
     public final void setCarillonAttivo(boolean carillonAttivo) {

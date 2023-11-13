@@ -22,11 +22,14 @@ public class Classe {
         capoClasse.setCognome(cognome);
         capoClasse.setNome(nome);
 
-        for (int i = 0; i < studenti.length; i++) {
+        /*for (int i = 0; i < studenti.length; i++) {
             cognome = studenti[i].getNome();
             nome = studenti[i].getCognome();
             studenti[i].setCognome(cognome);
             studenti[i].setNome(nome);
+        }*/
+        for(Studente studenti1 : studenti){
+            
         }
 
     }

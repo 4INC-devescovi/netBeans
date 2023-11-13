@@ -44,6 +44,12 @@ public class Orologio {
         return ora + ":" + minuti + ":" + secondi;
     }
     
+    public void aggiungiOra(int oreAgg){
+        ora += oreAgg;
+        while(ora >= 24)
+            ora -= 24;
+    }
+    
     public String toString(){
         return "Orologio:"
                 + "\nOra: " + ora
