@@ -7,7 +7,7 @@ public class Main {
         o.impostaOrologio(16, 5, 0);
         System.out.println(o.toString());
         o.setFormatoOra(false);
-        System.out.println(o.toString());
+        System.out.println(o.dammiOrario());
     }
     
 }

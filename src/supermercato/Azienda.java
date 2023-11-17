@@ -1,5 +1,5 @@
 package supermercato;
-import prodotto.Prodotto;
+import prodotto.ProdottoVecchio;
 public class Azienda {
     private String nomeGruppo;
     private String sedeLegale;
@@ -18,7 +18,7 @@ public class Azienda {
         return temp;
     }
     
-    public void addProd(Prodotto pAdd, int indice){
+    public void addProd(ProdottoVecchio pAdd, int indice){
         supermercati[indice].addProd(pAdd);
     }
 }

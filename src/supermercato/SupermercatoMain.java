@@ -1,5 +1,5 @@
 package supermercato;
-import prodotto.Prodotto;
+import prodotto.ProdottoVecchio;
 public class SupermercatoMain {
 
     public static void main(String[] args) {
@@ -13,10 +13,10 @@ public class SupermercatoMain {
 
 
 
-        Prodotto[] p = new Prodotto[4];
+        ProdottoVecchio[] p = new ProdottoVecchio[4];
 
         for (int i = 0; i < 4; i++){
-            p[i] = new Prodotto(prezzi[i], iva[i], pesi[i], tare[i], descrizioni[i], codici[i]);
+            p[i] = new ProdottoVecchio(prezzi[i], iva[i], pesi[i], tare[i], descrizioni[i], codici[i]);
         }
 
         Supermercato s = new Supermercato("Coop", "Viale IV Novembre 53", p);
@@ -39,7 +39,7 @@ public class SupermercatoMain {
         tara = 140;
         descrizione = "iphone";
         iva2 = 399;
-        Prodotto p1 = new Prodotto(prezzo, iva2, peso, tara, descrizione, codice);
+        ProdottoVecchio p1 = new ProdottoVecchio(prezzo, iva2, peso, tara, descrizione, codice);
         s.addProd(p1);
         s.remProd("action figure");
         

@@ -1,5 +1,5 @@
 package prodotto;
-public class Prodotto {
+public class ProdottoVecchio {
      private double prezzo;
      private double iva;
      private double peso;
@@ -7,7 +7,7 @@ public class Prodotto {
      private String descrizione;
      private String codiceBarre;
 
-    public Prodotto(double prezzo, double iva, double peso, double tara, String descrizione, String codiceBarre) {
+    public ProdottoVecchio(double prezzo, double iva, double peso, double tara, String descrizione, String codiceBarre) {
         this.prezzo = prezzo;
         this.iva = iva;
         this.peso = peso;
@@ -16,7 +16,7 @@ public class Prodotto {
         this.codiceBarre = codiceBarre;
     }
     
-    public Prodotto(Prodotto p){
+    public ProdottoVecchio(ProdottoVecchio p){
         this.prezzo = p.prezzo;
         this.iva = p.iva;
         this.peso = p.peso;
@@ -25,7 +25,7 @@ public class Prodotto {
         this.codiceBarre = p.codiceBarre;        
     }
     
-    public String stampa(){
+    public String toString(){
         return "Prezzo: " + prezzo + "\nIva: " + iva + "\nPeso: " + peso + "\nTara: " + tara + "\nDescrizione: " + descrizione + "\nCodice a barre: " + codiceBarre;
     }
     
