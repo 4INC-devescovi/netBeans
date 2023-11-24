@@ -1,13 +1,13 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Main.java to edit this template
- */
+ *//*
 package provaTelcho;
 
 /**
  *
  * @author rikid
- */
+ *//*
 public class NewMain {
 
     /**
@@ -34,4 +34,4 @@ public static void metodo2() {
 public static void metodoSeFalsa() {
     System.out.println("La condizione è falsa");
 }
-}
+}*/

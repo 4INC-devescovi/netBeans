@@ -13,10 +13,13 @@ import java.time.LocalDate;
 public class ProdottoAlimentare extends Prodotto{
     
     private Data dataScadenza; //quanti giorni mancano alla scadenza
+    private int sconto[];
     
     public ProdottoAlimentare(double prezzo, double iva, double peso, double tara, String descrizione, String codiceBarre, int giorno, int mese, int anno) {
         super(prezzo, iva, peso, tara, descrizione, codiceBarre);
         this.dataScadenza = new Data(giorno, mese, anno);
+        
+        sconto = new int[]{30, 50};
     }
     
     @Override
@@ -38,26 +41,24 @@ public class ProdottoAlimentare extends Prodotto{
     }
 
     
-    public double getPrezzoScontato() throws Exception{
+    public double prezzoScontato() throws Exception{
         LocalDate dataOdierna = LocalDate.now();
-        int giorno = dataOdierna.getDayOfMonth();
-        int mese = dataOdierna.getMonthValue();
-        int anno = dataOdierna.getYear();
+        
         Data d = new Data(dataOdierna.getDayOfMonth(), dataOdierna.getMonthValue(),dataOdierna.getYear());
         int scadenza = dataScadenza.diffData(d);
         int sconto = 0;
         if(scadenza > 0){
             if(scadenza < 10){
-                sconto = 30;
+                sconto = this.sconto[0];
                 if(scadenza < 2){
-                    sconto = 50;
+                    sconto = this.sconto[1];
                 }
             }
         }else{
             throw new Exception("Il prodotto " + getDescrizione() + " non può essere venduto.");
         }
         
-        return getPrezzo() - sconto/100;
+        return prezzoIvato() - getPrezzo()*sconto/100;
     }
     
     
