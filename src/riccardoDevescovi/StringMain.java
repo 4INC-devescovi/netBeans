@@ -19,7 +19,6 @@ public class StringMain {
         
         
         System.out.println(s.concat("ciao"));
-        System.out.println(s.indent(1));
         System.out.println(s.replace('a', 'b'));
         System.out.println(s.replaceAll("ci", "mi"));
         System.out.println(s.substring(2));
