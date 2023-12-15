@@ -28,7 +28,7 @@ public class Main {
         negozio[0].toString();
         
         ((ProdottoAlimentare)negozio[0]).getAnnoScadenza();
-        
+        if((ProdottoAlimentare)negozio[1])
         
     }
     
