@@ -20,6 +20,7 @@ public class Persona {
     protected static int numeroIstanze;
     
     public Persona(){
+        numeroIstanze++;
     }
 
     public Persona(String cognome, String nome, Data dataDiNascita) throws Exception{
@@ -39,6 +40,7 @@ public class Persona {
     }
     
     public void setData(Integer giorno, Integer mese, Integer anno)throws Exception{
+        dataDiNascita = new Data();
         dataDiNascita.setGiorno(giorno);
         dataDiNascita.setMese(mese);
         dataDiNascita.setAnno(anno);

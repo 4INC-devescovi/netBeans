@@ -22,7 +22,9 @@ public class Studente extends Persona{
     }
     
     public Studente(Integer classe, Boolean isRipetente, String cognome, String nome, Data dataDiNascita)throws Exception{
-        super(cognome, nome, dataDiNascita);
+        super.setCognome(cognome);
+        super.setNome(nome);
+        super.setData();
         setClasse(classe);
         setIsRipetente(isRipetente);
         voti = new Float[0];
@@ -54,10 +56,10 @@ public class Studente extends Persona{
             if(studente.classe == classe){
                 b = (studente.getCognome().equals(super.getCognome()) && studente.getNome().equals(super.getNome()));
             } else {
-                throw new Exception("La persona deve esistere. ");
+                throw new Exception("Lo studente deve esistere. ");
             }
         } else {
-            throw new Exception("La persona deve esistere. ");
+            throw new Exception("Lo studente deve esistere. ");
         }
         return b;
     }
@@ -100,6 +102,7 @@ public class Studente extends Persona{
     
     public Boolean promuovi(){
         Boolean b = (classe < 5);
+        classe++;
         return b;
     }
     
@@ -107,6 +110,7 @@ public class Studente extends Persona{
         if(numeroClassi == null)
             throw new Exception("La classe deve esistere. ");
         Boolean b = (numeroClassi + classe <= 5);
+        classe += numeroClassi;
         return b;
     }
     
@@ -125,7 +129,7 @@ public class Studente extends Persona{
         return "Scuola:          " + SCUOLA + "\n"
              + "Classe:          " + classe + "\n"
              + super.info() + "\n"
-             + "Ripetente:       " + isRipetente + "\n"
+             + "Ripetente:       " + (isRipetente ? "si" : "no") + "\n"
              + "Voti:            " + s;
     }
     
