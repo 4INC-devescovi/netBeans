@@ -4,7 +4,6 @@
  * and open the template in the editor.
  */
 package devescovi;
-import data.Data;
 /**
  *
  * @author S51VERIFICA24
@@ -24,7 +23,7 @@ public class Studente extends Persona{
     public Studente(Integer classe, Boolean isRipetente, String cognome, String nome, Data dataDiNascita)throws Exception{
         super.setCognome(cognome);
         super.setNome(nome);
-        super.setData();
+        super.setData(dataDiNascita);
         setClasse(classe);
         setIsRipetente(isRipetente);
         voti = new Float[0];

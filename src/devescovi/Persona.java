@@ -1,7 +1,5 @@
 package devescovi;
 
-import data.Data;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -45,6 +43,10 @@ public class Persona {
         dataDiNascita.setMese(mese);
         dataDiNascita.setAnno(anno);
     }
+    
+    public void setData(Data data)throws Exception{
+        dataDiNascita = new Data(data);
+    }
 
     public String getNome() {
         return nome;
@@ -72,9 +74,9 @@ public class Persona {
         return b;
     }
     
-    public Integer calcolaEta()throws Exception{
+    public Long calcolaEta()throws Exception{
         Data dataAttuale = new Data();
-        Integer i = Data.differenzaInAnni(dataDiNascita, dataAttuale);
+        Long i = Data.differenzaInAnni(dataDiNascita, dataAttuale);
         return i;
     }
     
