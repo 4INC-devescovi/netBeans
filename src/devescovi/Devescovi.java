@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package devescovi;
-import data.Data;
+
+import java.time.LocalDate;
+import java.time.Period;
+
 /**
  *
  * @author S51VERIFICA24
@@ -16,6 +19,7 @@ public class Devescovi {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        /*
         try{
             Data d = new Data(1, 1, 2008);
             Studente s = new Studente(2, false, "Rossi", "Mario", d);
@@ -33,9 +37,14 @@ public class Devescovi {
             
         }catch(Exception e){
             
-        }
+        }*/
         
+        LocalDate dataAnt = LocalDate.of(1990, 12, 30);
+        LocalDate dataSucc = LocalDate.of(2023, 1, 1);
         
+        Period differenza = Period.between(dataAnt, dataSucc);
+        
+        System.out.println(differenza.getYears()+ " anni\n" + differenza.getMonths()+ " mesi\n" + differenza.getDays()+ " giorni\n");
         
     }
     

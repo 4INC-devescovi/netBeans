@@ -11,4 +11,15 @@ package verificaGarage;
  */
 public class Livello {
     
+    private Parcheggio[] parcheggi;
+    private Integer pDisponibili;
+    
+    public Livello(Parcheggio[] parcheggi, Integer pDisponibili){
+        
+    }
+    
+    public void setParcheggi(Parcheggio[] parcheggi) {
+        if(parcheggi == null || parcheggi.length < 1)
+            throw new Exception("Sciao billone");
+    }
 }
