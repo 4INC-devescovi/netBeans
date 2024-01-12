@@ -5,11 +5,21 @@ public class Classe {
     private Studente[] studenti;
 
     public Classe(Studente capoClasse, Studente[] studenti){
-        this.studenti = new Studente[studenti.length];
-        for (int i = 0; i < studenti.length; i++){
-            this.studenti[i] = new Studente(studenti[i]); 
-        }  
+        this.studenti = studenti.clone();
         setCapoClasse(capoClasse);
+    }
+    
+    public boolean controllaOmonimia(Studente s) {
+        for (Studente st : studenti) {
+            if (st.equals(s)) {
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public int hashCode(int pos) {
+        return studenti[pos].hashCode();
     }
 
     public void setCapoClasse(Studente capoClasse) {
@@ -28,9 +38,6 @@ public class Classe {
             studenti[i].setCognome(cognome);
             studenti[i].setNome(nome);
         }*/
-        for(Studente studenti1 : studenti){
-            
-        }
 
     }
     

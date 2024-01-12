@@ -156,7 +156,9 @@ public class Data extends ControlloNull{
     }
 
     public final void setAnno(Integer anno) throws Exception {
-        ifNull(anno);
+        if (anno == null) {
+            throw new Exception("L'oggetto non può essere null");
+        }
         this.anno = anno;
         creaData();
     }

@@ -1,5 +1,8 @@
 package classe;
 
+import java.util.Objects;
+
+
 public class Studente {
     private String nome;
     private String cognome;
@@ -55,5 +58,43 @@ public class Studente {
     public String toString() {
         return "nome:"+nome+"  cognome:"+cognome;
     }
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 83 * hash + nome.hashCode();
+        hash = 83 * hash + cognome.hashCode();
+        return hash;
+    }
+
     
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Studente other = (Studente) obj;
+        if (!this.nome.equals(other.nome)) {
+            return false;
+        }
+        return this.cognome.equals(other.cognome);
+    }
+
+    
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize(); 
+    }
+
+    @Override
+    protected Studente clone() throws CloneNotSupportedException {
+        return (Studente) super.clone();
+    }   
 }

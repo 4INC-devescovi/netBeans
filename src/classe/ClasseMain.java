@@ -16,6 +16,10 @@ public class ClasseMain {
             Studente[] st = {test, test1, test2};
             Classe cl = new Classe (test1, st);
             System.out.println(cl);
+            System.out.println(cl.controllaOmonimia(test));
+            System.out.println(cl.hashCode(0) == test.hashCode());
+            System.out.println(test.hashCode());
+            System.out.println(test1.hashCode());
         }catch(Exception e){
             System.err.println(e);
         }
