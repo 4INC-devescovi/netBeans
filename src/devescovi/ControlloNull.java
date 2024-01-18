@@ -4,14 +4,39 @@
  */
 package devescovi;
 
+import java.util.List;
+
 /**
  *
  * @author rikid
  */
 public abstract class ControlloNull {
     
+    
+    
     public static void ifNull(Object obj)throws Exception{
         if(obj == null)
             throw new Exception("L'oggetto non può essere null. ");
+    }
+    
+    public Object[] arrayClone(Object[] obj){
+        Object[] objClone = new Object[obj.length];
+        
+        for(int i = 0; i < obj.length; i++)
+            try{
+            objClone[i] = clone();
+            } catch(Exception e){
+                
+            }
+        return objClone;
+    }
+    
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+        return (Object) super.clone();
+    }
+    
+    public static List<Object> listClone(List<Object> list){
+        
     }
 }

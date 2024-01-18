@@ -3,7 +3,7 @@ package classe;
 import java.util.Objects;
 
 
-public class Studente {
+public class Studente implements Cloneable{
     private String nome;
     private String cognome;
     
