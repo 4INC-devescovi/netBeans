@@ -18,10 +18,11 @@ public class Studente extends Persona{
     private final String SCUOLA = "I.T.T Buonarroti";
     private Integer classe;
     private Boolean isRipetente;
-    private List<Float> voti;
+    private ArrayList<Float> voti;
     
     public Studente(){
         super();
+        voti = new ArrayList<>();
     }
     
     public Studente(Integer classe, Boolean isRipetente, String cognome, String nome, Data dataDiNascita)throws Exception{
@@ -30,7 +31,7 @@ public class Studente extends Persona{
         super.setData(dataDiNascita);
         setClasse(classe);
         setIsRipetente(isRipetente);
-        voti = new ArrayList<Float>();
+        voti = new ArrayList<>();
     }
     
     public final void setClasse(Integer classe)throws Exception{

@@ -35,8 +35,4 @@ public abstract class ControlloNull {
     protected Object clone() throws CloneNotSupportedException {
         return (Object) super.clone();
     }
-    
-    public static List<Object> listClone(List<Object> list){
-        
-    }
 }

@@ -5,11 +5,7 @@
 package oggetti;
 
 import java.util.Random;
-/**
- * La classe Forbici e' una sottoclasse della classe Oggetti. Questa farà parte
- * degli oggetti presenti nella classe Cella.
- * @author Riccardo e Danilo
- */
+
 
 enum Tipologia {
     ARROTONDATA,
@@ -17,7 +13,11 @@ enum Tipologia {
 }
 
 
-
+/**
+ * La classe Forbici e' una sottoclasse della classe Oggetti. Questa farà parte
+ * degli oggetti presenti nella classe Cella.
+ * @author Riccardo e Danilo
+ */
 public class Forbici extends Oggetti {
     private Tipologia tipoPunta;
     

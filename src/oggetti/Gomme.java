@@ -6,11 +6,7 @@ package oggetti;
 
 import java.util.Random;
 
-/**
- * La classe Gomme e' una sottoclasse della classe Oggetti. Questa farà parte
- * degli oggetti presenti nella classe Cella.
- * @author Riccardo e Danilo
- */
+
 
 enum Durezza {
     MORBIDA,
@@ -18,7 +14,11 @@ enum Durezza {
     DURA
 }
 
-
+/**
+ * La classe Gomme e' una sottoclasse della classe Oggetti. Questa farà parte
+ * degli oggetti presenti nella classe Cella.
+ * @author Riccardo e Danilo
+ */
 public class Gomme extends Oggetti{
     private Durezza tipoDurezza;
     private Boolean isRed;
