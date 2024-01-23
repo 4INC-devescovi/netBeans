@@ -6,6 +6,8 @@ public class CirconferenzaMain {
         System.out.println("Raggio: " + c.getRaggio());
         System.out.println("Perimetro: " + c. getPerimetro());
         System.out.println("Area: " + c.getArea());
+        
+        System.out.println(Character.hashCode('1'));
     }
     
 }
