@@ -10,11 +10,6 @@ package letturaMessaggio;
  */
 public interface LetturaMessaggio {
 
-    @Override
-    public String toString();
-
-    public String getTesto();
-    
     public String leggiTesto();
     
 }

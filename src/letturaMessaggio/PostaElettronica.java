@@ -20,7 +20,6 @@ public class PostaElettronica implements LetturaMessaggio{
         this.oggetto = oggetto;
     }
 
-    @Override
     public String getTesto() {
         return testo;
     }

@@ -15,7 +15,6 @@ public class Whatsapp implements LetturaMessaggio{
         this.testo = testo;
     }
 
-    @Override
     public String getTesto() {
         return testo;
     }

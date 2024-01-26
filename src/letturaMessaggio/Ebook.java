@@ -20,7 +20,6 @@ public class Ebook implements LetturaMessaggio{
         this.totPagine = totPagine;
     }
 
-    @Override
     public String getTesto() {
         return testo;
     }

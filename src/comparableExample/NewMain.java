@@ -5,7 +5,7 @@
 package comparableExample;
 
 import java.util.ArrayList;
-import java.util.Collections;
+import java.util.Comparator;
 
 /**
  *
@@ -30,8 +30,8 @@ public class NewMain{
             i++;
             System.out.println("Cella " + i + ":\n" + element.toString());
         }
-        Collections.sort(arr);
-        
+        //Collections.sort(arr);
+        arr.sort(Comparator.reverseOrder());
         i = 0;
         for (Persona element : arr) {
             i++;
