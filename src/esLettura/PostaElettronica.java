@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package letturaMessaggio;
+package esLettura;
+
 
 /**
  *
- * @author riki and jack
+ * @author diego
  */
 public class PostaElettronica implements LetturaMessaggio{
     
@@ -26,7 +27,7 @@ public class PostaElettronica implements LetturaMessaggio{
     }
     
     @Override
-    public String leggiTesto(){
+    public String leggi(){
         return "Il mittente è: " + mittente + "\n"
              + "L'oggetto è: " + oggetto + "\n"
              + getTesto();

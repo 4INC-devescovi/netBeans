@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package letturaMessaggio;
+package esLettura;
+
 
 /**
  *
- * @author riki and jack
+ * @author diego
  */
 public interface LetturaMessaggio {
 
@@ -15,6 +16,6 @@ public interface LetturaMessaggio {
 
     public String getTesto();
     
-    public String leggiTesto();
+    public String leggi();
     
 }

@@ -2,11 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package letturaMessaggio;
+package esLettura;
+
 
 /**
  *
- * @author riki and jack
+ * @author diego
  */
 public class Whatsapp implements LetturaMessaggio{
     private String testo;
@@ -77,7 +78,7 @@ public class Whatsapp implements LetturaMessaggio{
     }
     
     @Override
-    public String leggiTesto(){
+    public String leggi(){
         String t = "";
         String testo = getTesto();
         for(int i = 0; i < testo.length(); i++){

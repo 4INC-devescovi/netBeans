@@ -13,7 +13,7 @@ import java.util.List;
  *
  * @author rikid
  */
-public class Studente extends Persona{
+public class Studente extends Persona implements Comparable<Studente>{
     
     private final String SCUOLA = "I.T.T Buonarroti";
     private Integer classe;
@@ -24,6 +24,8 @@ public class Studente extends Persona{
         super();
         voti = new ArrayList<>();
     }
+    
+    
     
     public Studente(Integer classe, Boolean isRipetente, String cognome, String nome, Data dataDiNascita)throws Exception{
         super.setCognome(cognome);
@@ -239,4 +241,6 @@ public class Studente extends Persona{
             throw new Exception("Non è presente nessun voto. ");
         }
     }
+
+    
 }

@@ -2,22 +2,23 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package letturaMessaggio;
+package esLettura;
+
 
 /**
  *
- * @author riki and jack
+ * @author diego
  */
 public class Ebook implements LetturaMessaggio{
     
     private String testo;
-    private String nomeLibro;
-    private int totPagine;
+    private String enomeLibro;
+    private int numPagine;
     
-    public Ebook(String testo, String nomeLIbro, int totPagine){
+    public Ebook(String testo, String enomeLIbro, int numPagine){
         this.testo=testo;
-        this.nomeLibro = nomeLibro;
-        this.totPagine = totPagine;
+        this.enomeLibro = enomeLibro;
+        this.numPagine = numPagine;
     }
 
     @Override
@@ -28,16 +29,18 @@ public class Ebook implements LetturaMessaggio{
      
     
     @Override
-    public String leggiTesto(){
-        return "Il nome del libro è: " + nomeLibro + "\n"
-             + "Le pagine totali sono: " + totPagine + "\n"
+    public String leggi(){
+        return "Il nome del libro è: " + enomeLibro + "\n"
+             + "Le pagine totali sono: " + numPagine + "\n"
              + getTesto(); 
     }
 
     @Override
     public String toString() {
-        return "Ebook{" + "nomeLibro=" + nomeLibro + ", totPagine=" + totPagine + super.toString() + '}';
+        return "Ebook{" + "nomeLibro=" + enomeLibro + ", totPagine=" + numPagine + super.toString() + '}';
     }
+    
+    
     
     
 }
