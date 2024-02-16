@@ -24,8 +24,8 @@ public class Filmato extends Audio implements Visibile{
     }
 
     @Override
-    public String riproduci() {
-        return super.riproduci() + asterischi();
+    public String play() {
+        return super.play() + asterischi();
     }
     
     

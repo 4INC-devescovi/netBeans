@@ -30,7 +30,7 @@ public class Audio extends DatoMultimediale{
         return super.toString() +  " Audio{volume: " + volume + "}";
     }
 
-    public String riproduci() {
+    public String play() {
         String ris = "";
         int cont = 0;
         while (cont < durata) {
