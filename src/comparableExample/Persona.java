@@ -7,7 +7,7 @@ package comparableExample;
 
 /**
  *
- * @author rikid
+ * @author rikid indicare quali metodi vengono usati sia in fase di compilazione che in fase di esecuzionele
  */
 public class Persona implements Comparable<Persona>{
     private String cognome;
@@ -20,6 +20,7 @@ public class Persona implements Comparable<Persona>{
 
     @Override
     public int compareTo(Persona o) {
+        if(cognome.compareTo(o.cognome))
         return cognome.compareTo(o.cognome);
     }
 

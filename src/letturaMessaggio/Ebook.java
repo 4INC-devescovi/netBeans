@@ -10,7 +10,7 @@ package letturaMessaggio;
  */
 public class Ebook implements LetturaMessaggio{
     
-    private String testo;
+    private String pagine[];
     private String nomeLibro;
     private int totPagine;
     
