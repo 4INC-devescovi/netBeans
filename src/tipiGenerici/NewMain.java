@@ -15,8 +15,11 @@ public class NewMain {
      */
     public static void main(String[] args) {
         
-        Persona p1 = new Persona("nome", "cognome");
-        System.out.println(Stampa.stampa(p1));
+        Persona p1 = new Persona("nome1", "cognome1");
+        Persona p2 = new Persona("nome2", "cognome2");
+        Persona[] pArr = {p1, p2};
+        
+        System.out.println(Stampa.stampaArray(pArr));
     }
     
 }

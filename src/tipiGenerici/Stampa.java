@@ -8,13 +8,9 @@ package tipiGenerici;
  *
  * @author rikid
  */
-public class Stampa <T>{
+public class Stampa{
     
-    /**
-     *
-     * @param dato
-     * @return
-     */
+    
     public static <T> String stampa(T dato){
         return dato.toString();
     }
@@ -22,7 +18,7 @@ public class Stampa <T>{
     public static <T> String stampaArray(T[] dato){
         String s = "";
         for(T datoCopia: dato){
-            s += datoCopia.toString();
+            s += datoCopia.toString() + "\n";
         }
         return s;
     }
@@ -34,7 +30,7 @@ public class Stampa <T>{
     public static <T> String stampaArrayObj(Object[] dato){
         String s = "";
         for(Object datoCopia: dato){
-            s += datoCopia.toString();
+            s += datoCopia.toString() + "\n";
         }
         return s;
     }
