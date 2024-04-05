@@ -20,6 +20,11 @@ public class NewMain {
         Persona[] pArr = {p1, p2};
         
         System.out.println(Stampa.stampaArray(pArr));
+        Character c = 'a';
+        Character d = 'b';
+        int num = c + d;
+        Character result = (char)(c + d);
+        System.out.println(c.hashCode());
     }
     
 }
