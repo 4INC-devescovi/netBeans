@@ -20,21 +20,11 @@ public class HashTable3 {
     }
     
     public Object[] getELEMENTS(){
-        Object[] elem = new Object[ELEMENTS.length];
-        LinkedList<PersonaHT> link = new LinkedList();
-        for(int i = 0; i < elem.length; i++){
-            if(ELEMENTS[i] != null){
-                link = (LinkedList)ELEMENTS[i];
-                elem[i] = link.clone();
-            } else{
-                elem[i] = null;
-            }
-        }
-        return elem;
+        return ELEMENTS.clone();
     }
     
     public void addElement(PersonaHT element){
-        int pos = findPosition(element)%ELEMENTS.length;
+        int pos = findPosition(element);
         LinkedList<PersonaHT> list = new LinkedList();
         if(ELEMENTS[pos] == null)
             ELEMENTS[pos] = list;
@@ -45,22 +35,22 @@ public class HashTable3 {
     }
     
     public Integer findElement(PersonaHT element){
-        Integer ris = -1;
-        int pos = findPosition(element)%ELEMENTS.length;
-        LinkedList<PersonaHT> list = new LinkedList();
+        int pos = findPosition(element);
+        
+        int trovato = -1;        
+                        
         if(ELEMENTS[pos] != null)
-            list = (LinkedList)ELEMENTS[pos];
-            for(int i = 0; i < list.size(); i++)
-                if(list.get(i).getNome() == element.getNome())
-                    ris = pos;
-        return ris;    
+            for(Object elemento: ((LinkedList<Object>)ELEMENTS[pos]))
+                if(((LinkedList<Object>)ELEMENTS[pos]).contains(element))
+                    trovato = pos;
+        return trovato;    
     }
     
     private Integer findPosition(PersonaHT element){
         int ris = 0;
         for(int i = 0; i < element.getNome().length(); i++)
-            ris += ((Character)element.getNome().charAt(i)).hashCode();
-        return ris;
+            ris += element.getNome().charAt(i);
+        return ris%ELEMENTS.length;
     }
     
     @Override

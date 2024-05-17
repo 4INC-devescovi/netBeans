@@ -1,28 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package devescovi1;
+package adt.hashTable;
 
-import java.time.LocalDate;
-import java.time.Period;
+import java.time.*;
 
-/**
- *
- * @author S51VERIFICA09
- */
-public class PersonaHT {
+public class PersonaHT {    
     private String nome;    
     private String dataDiNascita; 
 
     public PersonaHT(String nome, String dataDiNascita) throws Exception  {                        
-        setNome(nome);
-        setDataDiNascita(dataDiNascita);                             
+        this.setNome(nome);
+        this.setDataDiNascita(dataDiNascita);                             
     }
     
     public PersonaHT(PersonaHT persona) {                
-        this.nome = persona.nome;        
+        this.nome          = persona.nome;        
         this.dataDiNascita = persona.dataDiNascita;
     }        
     
@@ -31,7 +21,24 @@ public class PersonaHT {
     }
 
     final public void setNome(String nome) throws Exception {
+        /*Boolean valida = false;
+        int cont = 0;*/
+        
         try {
+            /*if (nome.length() >= 3) {
+                for (int i = 65; i <= 90; i++)
+                    if (nome.charAt(0) == (char)i)
+                        valida = true;
+            
+                for (int i = 1; i < nome.length(); i++)
+                    for (int j = 97; j <= 122; j++)
+                        if (nome.charAt(i) == (char)j)
+                            cont++;                        
+            }   
+                               
+            if (valida && cont == nome.length()-1)
+                this.nome = nome;*/
+            
             if (nome.matches("[A-Z][a-z]{2,}"))
                 this.nome = nome;
             else 
@@ -78,10 +85,16 @@ public class PersonaHT {
     
     @Override
     public String toString() {
-        return nome + " " + dataDiNascita;
-    }  
+        String info;
+
+        info = nome + " " + dataDiNascita;
+
+        return info;
+    }      
     
-    
-    
-    
+    public static void main(String[] args) throws Exception {
+        PersonaHT p = new PersonaHT("Nome", "29/02/2024");
+        
+        System.out.println(p.toString());
+    }
 }
