@@ -17,9 +17,6 @@ public class QueueCircolare {
 
     public QueueCircolare(int lenght) {
         array = new int[lenght];
-        front = 0;
-        rear = 0;
-        size = 0;
     }
     
     public int getSize(){
